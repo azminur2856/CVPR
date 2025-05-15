@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Face Recognition Web App</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 20px;
+      }
+      #video-container {
+        margin: 20px auto;
+        width: 640px;
+        position: relative;
+      }
+      #video {
+        border: 3px solid #333;
+        background: #000;
+      }
+      #results {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        min-height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Real-Time Face Recognition</h1>
+
+    <div id="video-container">
+      <img id="video" src="{{ url_for('video_feed') }}" width="640" />
+    </div>
+
+    <div id="results">
+      <p>Detected faces will appear here</p>
+    </div>
+
+    <script>
+      const video = document.getElementById("video");
+      const resultsDiv = document.getElementById("results");
+
+      setInterval(() => {
+        resultsDiv.innerHTML = "<p>Face recognition in progress...</p>";
+      }, 3000);
+    </script>
+  </body>
+</html>
